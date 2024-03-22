@@ -1,0 +1,26 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap&family=Rubik+Glitch&display=swap" rel="stylesheet">
+
+<div class="content-container">
+    <div class="home-button">
+        <button routerLink="">HOME</button>
+    </div>
+    <div class="player-score">
+        Score: {{ score }}
+    </div>
+    <div class="question-answer-container">
+        <app-question-answers [questionList]="questionList" [strikes]="strikes"
+            (strikesChange)="onStrikesChange($event)"></app-question-answers>
+    </div>
+    <div *ngIf="strikes > 0" class="strikes-container">
+        <span *ngFor="let strike of strikeArray" class="strike-span">
+            X
+        </span>
+    </div>
+    <div class="rotation-container">
+        <div class="last-chance-container pulsating" *ngIf="strikes === 2">
+            Last Chance!
+        </div>
+    </div>
+</div>

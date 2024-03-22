@@ -1,0 +1,26 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Glitch&display=swap" rel="stylesheet">
+
+<!-- <div *ngIf="authLoading || configLoading">Loading...</div>
+<div *ngIf="!authLoading && !configLoading">
+  Genre:
+  <select [(ngModel)]="selectedGenre" (ngModelChange)="setGenre($event)">
+    <option [value]=""></option>
+    <option [value]="genre" *ngFor="let genre of genres">
+      {{ genre }}
+    </option>
+  </select>
+  <button (click)="updateQuestions()">Update Question List</button>
+</div> -->
+<div class="container">
+  <h1 class="title">Musicology 101</h1>
+  <p class="subheading">This ain't your grandad's MTV</p>
+  <div class="button-container">
+    <button routerLink="/game" (click)="updateQuestions()">START</button>
+    <button routerLink="/settings">SETTINGS</button>
+  </div>
+  <div *ngIf="leaderboard.length > 0" class="leaderboard-component">
+    <app-leaderboard [leaderboard]="leaderboard"></app-leaderboard>
+  </div>
+</div>

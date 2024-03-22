@@ -1,0 +1,75 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 100px;
+    margin-bottom: 10px;
+  }
+
+  .subheading {
+    font-size: 20px;
+  }
+  
+  .button-container {
+    margin-top: 50px;
+  }
+  
+  .button-container button {
+    margin: 0 40px;
+  }
+
+  button {
+    position: relative;
+    background: #fb4848;
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    padding: 1rem 3rem;
+    font-size: 1em;
+    cursor: pointer;
+    transition: .25s ease;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+  }
+  
+  button::before {
+    position: absolute;
+    content: '';
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    transform: translate(-5px, -5px);
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(84, 84, 84);
+    transition: .25s ease;
+  }
+  
+  button:hover {
+    transform: translate(-5px, -5px);
+  }
+  
+  button:hover::before {
+    transform: translate(5px, 5px);
+  }
+
+  .leaderboard-component {
+    margin-top: 30px;
+  }
+
+  .title {
+    font-family: "Montserrat";
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .subheading {
+    font-family: "Rubik Glitch";
+  }

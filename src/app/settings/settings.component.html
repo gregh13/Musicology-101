@@ -1,0 +1,48 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+
+<button class="home-button" routerLink="">HOME</button>
+
+<div class="container">
+  <div class="left-section">
+    <div class="input-group">
+      <p>Music Playlist</p>
+      <select [(ngModel)]="genre">
+        <option disabled>Select</option>
+        <option *ngFor="let choice of genreList | keyvalue">{{choice.key}}</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <p>Question Type</p>
+      <select [(ngModel)]="type">
+        <option disabled>Select</option>
+        <option value="artist">artist</option>
+        <option value="trackName">track name</option>
+        <option value="album">album</option>
+      </select>
+    </div>
+    <button class="left" (click)="saveSettings()">Save Settings</button>
+  </div>
+
+
+  <div class="right-section">
+    <div class="input-group">
+      <input [(ngModel)]="playlistName" (ngModelChange)="setPlaylistName($event)">
+      <p>Playlist name</p>
+    </div>
+    <div class="input-group">
+      <input [(ngModel)]="playlistUrl" (ngModelChange)="setPlaylistUrl($event)">
+      <p>Playlist Url</p>
+      <img id="playlist-info-icon" style="width: 18px; margin: 0 0 4px 10px;" src="../../assets/images/info_icon.png" alt="info" aria-label="Button that displays a tooltip in various positions">
+      <div id="playlist-info-text">
+        <p class="tooltip-text">On any public Spotify playlist, in the playlist options (three dots near the play button), navigate to "Share" (near the bottom), and select "Copy link to playlist". Paste the link and you're good to go!</p>
+      </div>
+    </div>
+    <div class="message-box" *ngIf="playlistMessage">
+      <p class="message-text">{{ playlistMessage }}</p>
+    </div>
+    <button class="right" (click)="updatePlaylist()">Add New Playlist</button>
+
+  </div>
+</div>

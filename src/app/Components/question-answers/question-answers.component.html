@@ -1,0 +1,21 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Glitch&display=swap" rel="stylesheet">
+
+<div class="choices-container" *ngIf="questionList.length > 0">
+    <div class="audio=player">
+        <app-audio-player [audioSrc]="questionList[idx].preview_url"></app-audio-player>
+    </div>
+    <div class="choice-item" *ngFor="let choice of questionList[idx].choices">
+        <button class="choices" (click)="selectChoice(choice)">{{ choice.text }}</button>
+    </div>
+    <div class="features-container">
+        <button (click)="getFeatures()">Bonus Track Info</button>
+        <div *ngIf="displayFeatures">
+            <ul>
+                <li *ngFor="let stat of audioFeatures | keyvalue">{{stat.key}}: {{stat.value}}</li>
+            </ul>
+            <!-- <button class="hide-button" (click)="hideInfo()">Hide Info</button> -->
+        </div>
+    </div>
+</div>

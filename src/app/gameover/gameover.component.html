@@ -1,0 +1,26 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Glitch&display=swap" rel="stylesheet">
+
+<div class="home-button">
+    <button routerLink="">HOME</button>
+</div>
+<div class="container">
+    <h1>Your Music Journey Has Ended</h1>
+    <div *ngIf="this.isWinner else LoserBlock">
+        <h3>Legendary Performance</h3>
+    </div>
+    <ng-template #LoserBlock>
+        <h3>You're A Bit Off Key</h3>
+    </ng-template>
+    <p>Your score {{ score }}</p>
+
+
+    <form #nameForm="ngForm" (ngSubmit)="submitName(nameForm)">
+        <div>
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name" name="name" ngModel required>
+        </div>
+        <button class="submit-button" type="submit">Submit</button>
+    </form>
+</div>
